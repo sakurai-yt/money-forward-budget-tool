@@ -5,26 +5,29 @@ body {
     color: #333; /* テキストの色をダークグレーに設定 */
     margin: 0;
     padding: 0;
-    display: flex; /* フレックスボックスを使用して中央揃え */
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* 画面全体の高さに合わせて中央配置 */
+    display: flex;
+    justify-content: center; /* コンテンツを中央揃え */
+    align-items: center; /* 垂直方向にも中央揃え */
+    min-height: 100vh; /* ページ全体の高さを確保 */
+    flex-direction: column; /* フレックスボックスを縦方向に配置 */
 }
 
 /* コンテナボックスのスタイル設定 */
 .container {
-    background-color: #fff; /* 背景色を白に設定 */
+    background-color: #fff;
     padding: 20px;
     border-radius: 8px; /* 角を丸める */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 軽いシャドウを追加 */
-    width: 350px; /* コンテナの幅を設定、改行を防ぐ */
+    width: 340px; /* コンテナの幅を広げてタイトルが収まるように */
+    margin-top: 40px; /* 上部に余白を追加 */
+    text-align: left; /* テキストを左揃えに */
 }
 
 /* タイトル（h1）のスタイル設定 */
 h1 {
     text-align: center; /* タイトルを中央揃え */
     margin-bottom: 20px;
-    font-size: 24px;
+    font-size: 22px; /* フォントサイズを少し調整 */
     color: #555;
     white-space: nowrap; /* 改行を防ぎ、タイトルが一行で表示されるようにする */
 }
@@ -85,7 +88,7 @@ h1 {
     white-space: nowrap; /* 改行を防ぎ、数値が一行で表示されるようにする */
 }
 
-/* モダンなボタンのスタイル */
+/* リセットボタンのスタイル設定 */
 #resetButton {
     background-color: #f4f4f4; /* ボタンの背景色 */
     color: #333; /* ボタンの文字色 */
@@ -100,15 +103,66 @@ h1 {
     transition: background-color 0.3s ease, box-shadow 0.3s ease; /* ホバー時のトランジションを設定 */
 }
 
-/* ホバー時のスタイル */
+/* リセットボタンのホバー時のスタイル設定 */
 #resetButton:hover {
     background-color: #e0e0e0; /* ホバー時に背景色を少し濃く */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* ホバー時のシャドウを強化 */
 }
 
-/* アクティブ時のスタイル */
+/* リセットボタンのアクティブ時のスタイル設定 */
 #resetButton:active {
     background-color: #d4d4d4; /* クリック時にさらに背景色を濃く */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* クリック時のシャドウを少し軽く */
     transform: translateY(2px); /* クリック時に少し押し込む効果 */
+}
+
+/* フッタースタイル */
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px 0;
+    color: #888;
+    font-size: 14px;
+    width: 100%; /* フッターを幅いっぱいに広げる */
+    box-sizing: border-box;
+    position: relative;
+    bottom: 0;
+    left: 0;
+}
+
+/* フッター内のテキストスタイル */
+.footer p {
+    margin: 5px 0;
+}
+
+/* ソーシャルアイコンスタイル */
+.social-icons {
+    margin: 10px 0;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    display: inline-block;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.social-icons a:hover {
+    opacity: 1.0;
+}
+
+.social-icons img {
+    width: 24px; /* アイコンの幅 */
+    height: 24px; /* アイコンの高さ */
+}
+
+/* フッターのリンクスタイル */
+.footer a {
+    color: #888;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #333;
 }
