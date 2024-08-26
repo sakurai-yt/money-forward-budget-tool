@@ -8,7 +8,7 @@ function formatNumber(input) {
     if (!isNaN(value) && value.length > 0) {
         return parseFloat(value).toLocaleString(); // 3桁区切りにフォーマット
     } else {
-        return '';
+        return '0'; // 入力が空なら0を返す
     }
 }
 
@@ -23,46 +23,50 @@ function isValidNumber(input) {
 }
 
 /**
- * 入力された値に基づいて予算残とGAPを計算する関数
+ * 予算残を計算する関数
  */
-function calculate() {
-    try {
-        // 各入力フィールドから数値を取得し、カンマを除去して数値に変換
-        var currentBudget = document.getElementById("currentBudget").value.replace(/,/g, '') || 0;
-        var unclassified = document.getElementById("unclassified").value.replace(/,/g, '') || 0;
-        var bankBalance = document.getElementById("bankBalance").value.replace(/,/g, '') || 0;
-        
-        // 入力値が有効な数値かどうかをチェック
-        if (!isValidNumber(currentBudget) || !isValidNumber(unclassified) || !isValidNumber(bankBalance)) {
-            throw new Error('入力が無効です。数値を入力してください。');
-        }
+function calculateBudgetLeft() {
+    var currentBudget = document.getElementById("currentBudget").value.replace(/,/g, '') || '0';
+    var unclassified = document.getElementById("unclassified").value.replace(/,/g, '') || '0';
 
-        // 数値に変換
-        currentBudget = parseFloat(currentBudget);
-        unclassified = parseFloat(unclassified);
-        bankBalance = parseFloat(bankBalance);
-
-        // 予算残を計算し、3桁区切りで表示
-        var budgetLeft = currentBudget - unclassified;
+    if (isValidNumber(currentBudget) && isValidNumber(unclassified)) {
+        var budgetLeft = parseFloat(currentBudget) - parseFloat(unclassified);
         document.getElementById("budgetLeft").textContent = budgetLeft.toLocaleString();
-
-        // GAPを計算し、3桁区切りで表示
-        var gap = budgetLeft - bankBalance;
-        document.getElementById("gap").textContent = gap.toLocaleString();
-
-    } catch (error) {
-        console.error('計算中にエラーが発生しました:', error.message); // コンソールにエラーメッセージを表示
+        return budgetLeft;
+    } else {
+        document.getElementById("budgetLeft").textContent = '0';
+        return 0;
     }
 }
 
 /**
- * 入力フィールドの値をフォーマットし、計算を実行する関数
+ * GAPを計算する関数
+ */
+function calculateGAP() {
+    var budgetLeft = calculateBudgetLeft();
+    var bankBalance = document.getElementById("bankBalance").value.replace(/,/g, '') || '0';
+
+    if (isValidNumber(bankBalance)) {
+        var gap = budgetLeft - parseFloat(bankBalance);
+        document.getElementById("gap").textContent = gap.toLocaleString();
+    } else {
+        document.getElementById("gap").textContent = '0';
+    }
+}
+
+/**
+ * 入力フィールドの値をフォーマットし、必要に応じて計算を実行する関数
  * @param {Event} event - 入力イベント
  */
 function formatAndCalculate(event) {
     var input = event.target; // イベントが発生した入力フィールドを取得
     input.value = formatNumber(input.value); // 入力値を3桁区切りにフォーマット
-    calculate(); // フォーマット後に計算を実行
+
+    if (input.id === "currentBudget" || input.id === "unclassified") {
+        calculateBudgetLeft(); // 現在予算または未分類残が入力されたら予算残を計算
+    } else if (input.id === "bankBalance") {
+        calculateGAP(); // 三井住友銀行の現残高が入力されたらGAPを計算
+    }
 }
 
 /**
