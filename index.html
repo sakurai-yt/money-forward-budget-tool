@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Money Forward 予算計算ツール</title>
-    <!-- Content Security Policy (CSP) を設定 -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self';">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
@@ -12,7 +11,7 @@
 <body>
     <div class="container">
         <h1>Money Forward 予算計算ツール</h1>
-        <form> <!-- 入力フォームの開始 -->
+        <form id="budgetForm"> <!-- フォームにIDを追加 -->
             <!-- 現在予算の入力フィールド -->
             <div class="form-group">
                 <label for="currentBudget">現在予算:</label>
@@ -42,6 +41,9 @@
                 <label for="gap">GAP:</label>
                 <span id="gap" class="result-text">0</span>
             </div>
+
+            <!-- リセットボタン -->
+            <button type="button" id="resetButton">リセット</button>
         </form>
     </div>
 </body>

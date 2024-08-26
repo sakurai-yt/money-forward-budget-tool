@@ -65,7 +65,19 @@ function formatAndCalculate(event) {
     calculate(); // フォーマット後に計算を実行
 }
 
+/**
+ * フォームをリセットし、すべてのフィールドを初期化する関数
+ */
+function resetForm() {
+    document.getElementById("budgetForm").reset(); // フォームの入力フィールドをリセット
+    document.getElementById("budgetLeft").textContent = '0'; // 予算残を初期化
+    document.getElementById("gap").textContent = '0'; // GAPを初期化
+}
+
 // 各入力フィールドに対して、入力イベントが発生した際にフォーマットと計算を行う
 document.getElementById("currentBudget").addEventListener("input", formatAndCalculate);
 document.getElementById("unclassified").addEventListener("input", formatAndCalculate);
 document.getElementById("bankBalance").addEventListener("input", formatAndCalculate);
+
+// リセットボタンにクリックイベントを追加し、リセット機能を実行
+document.getElementById("resetButton").addEventListener("click", resetForm);

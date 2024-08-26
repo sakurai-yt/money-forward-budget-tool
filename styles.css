@@ -84,3 +84,31 @@ h1 {
     margin-left: auto; /* ラベルと結果の間を自動で調整 */
     white-space: nowrap; /* 改行を防ぎ、数値が一行で表示されるようにする */
 }
+
+/* モダンなボタンのスタイル */
+#resetButton {
+    background-color: #f4f4f4; /* ボタンの背景色 */
+    color: #333; /* ボタンの文字色 */
+    border: 1px solid #ccc; /* ボタンの境界線 */
+    border-radius: 8px; /* 角を丸める */
+    padding: 10px 20px; /* パディングを設定 */
+    font-size: 16px; /* フォントサイズを設定 */
+    cursor: pointer; /* カーソルをポインタに変更 */
+    text-align: center; /* テキストを中央に揃える */
+    width: 100%; /* ボタンの幅を100%に設定 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 軽いシャドウを追加 */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* ホバー時のトランジションを設定 */
+}
+
+/* ホバー時のスタイル */
+#resetButton:hover {
+    background-color: #e0e0e0; /* ホバー時に背景色を少し濃く */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* ホバー時のシャドウを強化 */
+}
+
+/* アクティブ時のスタイル */
+#resetButton:active {
+    background-color: #d4d4d4; /* クリック時にさらに背景色を濃く */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* クリック時のシャドウを少し軽く */
+    transform: translateY(2px); /* クリック時に少し押し込む効果 */
+}
