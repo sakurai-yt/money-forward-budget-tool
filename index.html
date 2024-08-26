@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Forward 予算計算ツール</title>
+    <!-- Content Security Policy (CSP) を設定 -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self';">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Money Forward 予算計算ツール</h1>
+        <form> <!-- 入力フォームの開始 -->
+            <!-- 現在予算の入力フィールド -->
+            <div class="form-group">
+                <label for="currentBudget">現在予算:</label>
+                <input type="text" id="currentBudget" class="input-field" inputmode="numeric" pattern="\d*">
+            </div>
+
+            <!-- 未分類残の入力フィールド -->
+            <div class="form-group">
+                <label for="unclassified">未分類残:</label>
+                <input type="text" id="unclassified" class="input-field" inputmode="numeric" pattern="\d*">
+            </div>
+
+            <!-- 予算残の表示フィールド -->
+            <div class="form-group result-group">
+                <label for="budgetLeft">予算残:</label>
+                <span id="budgetLeft" class="result-text">0</span>
+            </div>
+
+            <!-- 三井住友銀行の現残高の入力フィールド -->
+            <div class="form-group">
+                <label for="bankBalance">三井住友銀行の現残高:</label>
+                <input type="text" id="bankBalance" class="input-field" inputmode="numeric" pattern="\d*">
+            </div>
+
+            <!-- GAPの表示フィールド -->
+            <div class="form-group result-group">
+                <label for="gap">GAP:</label>
+                <span id="gap" class="result-text">0</span>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

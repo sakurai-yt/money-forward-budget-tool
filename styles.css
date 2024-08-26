@@ -1,0 +1,86 @@
+/* 全体のスタイル設定 */
+body {
+    font-family: Arial, sans-serif; /* フォントを設定 */
+    background-color: #f4f4f4; /* 背景色を淡いグレーに設定 */
+    color: #333; /* テキストの色をダークグレーに設定 */
+    margin: 0;
+    padding: 0;
+    display: flex; /* フレックスボックスを使用して中央揃え */
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 画面全体の高さに合わせて中央配置 */
+}
+
+/* コンテナボックスのスタイル設定 */
+.container {
+    background-color: #fff; /* 背景色を白に設定 */
+    padding: 20px;
+    border-radius: 8px; /* 角を丸める */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 軽いシャドウを追加 */
+    width: 350px; /* コンテナの幅を設定、改行を防ぐ */
+}
+
+/* タイトル（h1）のスタイル設定 */
+h1 {
+    text-align: center; /* タイトルを中央揃え */
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #555;
+    white-space: nowrap; /* 改行を防ぎ、タイトルが一行で表示されるようにする */
+}
+
+/* 各フォームグループのスタイル設定 */
+.form-group {
+    margin-bottom: 15px;
+    display: flex; /* フレックスボックスでラベルと入力フィールドを横並びに */
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap; /* 改行を防ぎ、ラベルが一行で表示されるようにする */
+}
+
+/* ラベルのスタイル設定 */
+.label {
+    font-size: 14px;
+    margin-right: 10px; /* ラベルと入力フィールドの間にスペースを追加 */
+    white-space: nowrap; /* ラベルが改行されないようにする */
+}
+
+/* 入力フィールドのスタイル設定 */
+.input-field {
+    width: 100%; /* 入力フィールドの幅を親要素に合わせる */
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 4px; /* 角を丸める */
+    border: 1px solid #ccc; /* 薄いグレーの枠線を設定 */
+    box-sizing: border-box; /* パディングを含む幅を設定 */
+    font-family: 'Courier New', Courier, monospace; /* 等幅フォントを使用して数字の揃えを良くする */
+}
+
+/* 入力フィールドのフォーカス時のスタイル設定 */
+.input-field:focus {
+    border-color: #66afe9; /* フォーカス時の枠線の色を青に */
+    outline: none;
+    box-shadow: 0 0 8px rgba(102, 175, 233, 0.6); /* フォーカス時に青い影を追加 */
+}
+
+/* 結果表示用のフィールド（予算残、GAP）のスタイル設定 */
+.result-group {
+    background-color: #f0f8ff; /* 背景色を薄い青に設定 */
+    padding: 10px;
+    border-radius: 8px; /* 角を丸める */
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1); /* 内側に軽いシャドウを追加 */
+    display: flex; /* ラベルと結果を横並びに */
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 結果テキスト（予算残、GAP）のスタイル設定 */
+.result-text {
+    font-size: 18px; /* フォントサイズを大きくして目立たせる */
+    font-weight: bold; /* 太字に設定 */
+    color: #333; /* テキストの色をダークグレーに設定 */
+    text-align: right; /* テキストを右揃えにする */
+    width: auto; /* テキスト幅を自動調整 */
+    margin-left: auto; /* ラベルと結果の間を自動で調整 */
+    white-space: nowrap; /* 改行を防ぎ、数値が一行で表示されるようにする */
+}
