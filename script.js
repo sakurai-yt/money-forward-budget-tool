@@ -23,7 +23,7 @@ function isValidNumber(input) {
 }
 
 /**
- * 予算残を計算する関数
+ * 実予算残を計算する関数
  */
 function calculateBudgetLeft() {
     var currentBudget = document.getElementById("currentBudget").value.replace(/,/g, '') || '0';
@@ -63,9 +63,9 @@ function formatAndCalculate(event) {
     input.value = formatNumber(input.value); // 入力値を3桁区切りにフォーマット
 
     if (input.id === "currentBudget" || input.id === "unclassified") {
-        calculateBudgetLeft(); // 現在予算または未分類残が入力されたら予算残を計算
+        calculateBudgetLeft(); // 予算残高または未分類残が入力されたら実予算残を計算
     } else if (input.id === "bankBalance") {
-        calculateGAP(); // 三井住友銀行の現残高が入力されたらGAPを計算
+        calculateGAP(); // 銀行口座残高が入力されたらGAPを計算
     }
 }
 
@@ -74,7 +74,7 @@ function formatAndCalculate(event) {
  */
 function resetForm() {
     document.getElementById("budgetForm").reset(); // フォームの入力フィールドをリセット
-    document.getElementById("budgetLeft").textContent = '0'; // 予算残を初期化
+    document.getElementById("budgetLeft").textContent = '0'; // 実予算残を初期化
     document.getElementById("gap").textContent = '0'; // GAPを初期化
 }
 

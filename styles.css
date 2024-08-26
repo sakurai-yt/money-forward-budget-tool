@@ -18,7 +18,7 @@ body {
     padding: 20px;
     border-radius: 8px; /* 角を丸める */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 軽いシャドウを追加 */
-    width: 340px; /* コンテナの幅を広げてタイトルが収まるように */
+    width: 340px; /* コンテナの幅を設定してタイトルが収まるように */
     margin-top: 40px; /* 上部に余白を追加 */
     text-align: left; /* テキストを左揃えに */
 }
@@ -27,7 +27,7 @@ body {
 h1 {
     text-align: center; /* タイトルを中央揃え */
     margin-bottom: 20px;
-    font-size: 22px; /* フォントサイズを少し調整 */
+    font-size: 22px; /* フォントサイズを調整 */
     color: #555;
     white-space: nowrap; /* 改行を防ぎ、タイトルが一行で表示されるようにする */
 }
@@ -66,7 +66,7 @@ h1 {
     box-shadow: 0 0 8px rgba(102, 175, 233, 0.6); /* フォーカス時に青い影を追加 */
 }
 
-/* 結果表示用のフィールド（予算残、GAP）のスタイル設定 */
+/* 結果表示用のフィールド（実予算残、GAP）のスタイル設定 */
 .result-group {
     background-color: #f0f8ff; /* 背景色を薄い青に設定 */
     padding: 10px;
@@ -77,7 +77,7 @@ h1 {
     align-items: center;
 }
 
-/* 結果テキスト（予算残、GAP）のスタイル設定 */
+/* 結果テキスト（実予算残、GAP）のスタイル設定 */
 .result-text {
     font-size: 18px; /* フォントサイズを大きくして目立たせる */
     font-weight: bold; /* 太字に設定 */
